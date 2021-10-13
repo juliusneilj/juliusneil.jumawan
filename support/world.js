@@ -1,45 +1,58 @@
-import { setWorldConstructor } from "cucumber"
+import { setWorldConstructor } from '@cucumber/cucumber'
 
 class CustomWorld {
-    constructor() {
-        this.testData = {}
-        this.products = []
-        this.prices = []
-        this.count = []
-    }
+	constructor() {
+		this.productDetails = []
+	}
 
-    setTestData(key, value) {
-        this.testData[key] = value
-    }
+	setProductDetails(productName, productPrice, quantity) {
+		// this.productDetails.push({
+		// 	product: `${productName}`,
+		// 	price: `${productPrice}`,
+		// 	quantity: `${quantity}`,
+		// })
+		let prodObj = {}
+		prodObj.product = productName
+		prodObj.price = productPrice
+		prodObj.quantity = quantity
+		this.productDetails.push(prodObj)
+	}
 
-    getTestData(key) {
-        return this.testData[key]
-    }
+	getProductDetails(productName) {
+		for (let i = 0; i < this.productDetails.length; i++) {
+			if (this.productDetails[i].product === `${productName}`) {
+				console.log(this.productDetails[i])
+				return this.productDetails[i]
+			}
+		}
+	}
 
-    setProducts(product) {
-        this.products.push(product)
-    }
+	getProducts() {
+		let products = []
+		for (let i = 0; i < this.productDetails.length; i++) {
+			products.push(this.productDetails[i].product)
+		}
+		console.log(products)
+		return products
+	}
 
-    getProducts() {
-        return this.products
-    }
+	getProductPrices() {
+		let prices = []
+		for (let i = 0; i < this.productDetails.length; i++) {
+			prices.push(this.productDetails[i].price)
+		}
+		console.log(prices)
+		return prices
+	}
 
-    setProductPrices(price) {
-        this.prices.push(price)
-    }
-
-    getProductPrices() {
-        return this.prices
-    }
-
-    setProductCount(c) {
-        this.count.push(c)
-    }
-
-    getProductCount() {
-        return this.count
-    }
-
+	getProductCount() {
+		let quantity = []
+		for (let i = 0; i < this.productDetails.length; i++) {
+			quantity.push(this.productDetails[i].quantity)
+		}
+		console.log(quantity)
+		return quantity
+	}
 }
 
 setWorldConstructor(CustomWorld)
