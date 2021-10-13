@@ -5,4 +5,5 @@
     ],
     "cucumberautocomplete.syncfeatures": "features/*.feature",
     "cucumberautocomplete.strictGherkinCompletion": true,
+    "git.ignoreLimitWarning": true,
 }

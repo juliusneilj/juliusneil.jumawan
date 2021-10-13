@@ -36,3 +36,10 @@ A sample of this is:
 To run all the feature files, use:
 
 > `./node_modules/.bin/wdio wdio.conf.js`
+
+# Setting Up Prettier for Whole Project
+
+1. Install Prettier through npm.
+   > `npm install --save-dev prettier`
+2. Create .prettierrc in the project root folder.
+3. Add desired configs.
